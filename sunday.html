@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>الأحد — قلوتس + رجلين | Reemas Fit</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">🌸 ريماس فت</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+      <li><a href="saturday.html" data-ar="السبت" data-en="Sat">السبت</a></li>
+      <li><a href="sunday.html" class="active" data-ar="الأحد" data-en="Sun">الأحد</a></li>
+      <li><a href="monday.html" data-ar="الاثنين" data-en="Mon">الاثنين</a></li>
+      <li><a href="tuesday.html" data-ar="الثلاثاء" data-en="Tue">الثلاثاء</a></li>
+      <li><a href="wednesday.html" data-ar="الأربعاء" data-en="Wed">الأربعاء</a></li>
+      <li><a href="my-journey.html" data-ar="رحلتي" data-en="My Journey">رحلتي</a></li>
+    </ul>
+    <button class="lang-btn" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+ 
+<div class="section">
+  <div class="day-hero" style="background:linear-gradient(135deg,var(--mint) 0%,var(--blush) 100%)">
+    <span class="day-hero-emoji">🍑</span>
+    <h1 data-ar="الأحد — يوم القلوتس والرجلين" data-en="Sunday — Glutes & Legs Day">الأحد — يوم القلوتس والرجلين</h1>
+    <p data-ar="أقوى تمرين في الأسبوع • المدة: ~45 دقيقة" data-en="Strongest workout of the week • Duration: ~45 min">أقوى تمرين في الأسبوع • المدة: ~45 دقيقة</p>
+  </div>
+ 
+  <div class="timer-bar">
+    <div>
+      <div style="font-size:0.8rem;font-weight:700;color:var(--mint-text)" data-ar="⏱ مؤقت التمرين" data-en="⏱ Workout Timer">⏱ مؤقت التمرين</div>
+      <div class="timer-display" id="timerDisplay">00:00</div>
+    </div>
+    <div class="timer-controls">
+      <button class="timer-btn" onclick="startTimer()" data-ar="▶ ابدأ" data-en="▶ Start">▶ ابدأ</button>
+      <button class="timer-btn" onclick="pauseTimer()" data-ar="⏸ وقفة" data-en="⏸ Pause">⏸ وقفة</button>
+      <button class="timer-btn" onclick="resetTimer()" data-ar="↺ إعادة" data-en="↺ Reset">↺ إعادة</button>
+    </div>
+  </div>
+ 
+  <div class="workout-section">
+    <div class="workout-label mint">
+      <span>🍑</span>
+      <span data-ar="تمارين القلوتس — دمبلز 5 كيلو" data-en="Glutes Exercises — 5kg Dumbbells">تمارين القلوتس — دمبلز 5 كيلو</span>
+    </div>
+    <div class="exercise-grid">
+      <div class="exercise-card mint-border">
+        <div class="exercise-name" data-ar="سكوات بالدمبلز (Goblet Squat)" data-en="Goblet Squat">سكوات بالدمبلز (Goblet Squat)</div>
+        <div class="exercise-meta">
+          <span class="pill mint" data-ar="4 جولات" data-en="4 sets">4 جولات</span>
+          <span class="pill mint" data-ar="15 تكرار" data-en="15 reps">15 تكرار</span>
+          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        </div>
+        <div class="exercise-tip" data-ar="أمسكي دمبل واحد بكلتا يديكِ عند الصدر، انزلي للأسفل وركبتيكِ خارج أصابع قدميكِ" data-en="Hold one dumbbell at chest with both hands, squat down with knees tracking over toes">أمسكي دمبل واحد بكلتا يديكِ عند الصدر، انزلي للأسفل وركبتيكِ خارج أصابع قدميكِ</div>
+      </div>
+      <div class="exercise-card mint-border">
+        <div class="exercise-name" data-ar="هيب ثراست (Hip Thrust)" data-en="Hip Thrust">هيب ثراست (Hip Thrust)</div>
+        <div class="exercise-meta">
+          <span class="pill mint" data-ar="4 جولات" data-en="4 sets">4 جولات</span>
+          <span class="pill mint" data-ar="15 تكرار" data-en="15 reps">15 تكرار</span>
+          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        </div>
+        <div class="exercise-tip" data-ar="ظهرك على الكنبة أو السرير، دمبل على الحوض، ارفعي الحوض عالياً واضغطي القلوتس" data-en="Back on couch/bed, dumbbell on hips, drive hips up and squeeze glutes">ظهرك على الكنبة أو السرير، دمبل على الحوض، ارفعي الحوض عالياً واضغطي القلوتس</div>
+      </div>
+      <div class="exercise-card mint-border">
+        <div class="exercise-name" data-ar="رومانيان ديدليفت (Romanian Deadlift)" data-en="Romanian Deadlift">رومانيان ديدليفت (Romanian Deadlift)</div>
+        <div class="exercise-meta">
+          <span class="pill mint" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
+          <span class="pill mint" data-ar="12 تكرار" data-en="12 reps">12 تكرار</span>
+          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        </div>
+        <div class="exercise-tip" data-ar="دمبلزين، أميليهم للأمام مع ثني الجذع، اشعري بالشد بالهامسترينج" data-en="Hold both dumbbells, hinge forward, feel the hamstring stretch">دمبلزين، أميليهم للأمام مع ثني الجذع، اشعري بالشد بالهامسترينج</div>
+      </div>
+      <div class="exercise-card mint-border">
+        <div class="exercise-name" data-ar="لانج (Reverse Lunge)" data-en="Reverse Lunge">لانج (Reverse Lunge)</div>
+        <div class="exercise-meta">
+          <span class="pill mint" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
+          <span class="pill mint" data-ar="10 كل رجل" data-en="10 each leg">10 كل رجل</span>
+          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        </div>
+        <div class="exercise-tip" data-ar="خطوة للخلف، ركبة تقترب من الأرض، ارجعي للوقوف واضغطي القلوتس" data-en="Step back, knee near floor, return to standing and squeeze glutes">خطوة للخلف، ركبة تقترب من الأرض، ارجعي للوقوف واضغطي القلوتس</div>
+      </div>
+      <div class="exercise-card mint-border">
+        <div class="exercise-name" data-ar="كيك باك (Donkey Kick)" data-en="Donkey Kick">كيك باك (Donkey Kick)</div>
+        <div class="exercise-meta">
+          <span class="pill mint" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
+          <span class="pill mint" data-ar="15 كل رجل" data-en="15 each leg">15 كل رجل</span>
+          <span class="pill" data-ar="بدون دمبلز" data-en="Bodyweight">بدون دمبلز</span>
+        </div>
+        <div class="exercise-tip" data-ar="على أربع، ارفعي ساقك للخلف والأعلى، اضغطي القلوتس في الأعلى" data-en="On all fours, kick leg back and up, squeeze glute at top">على أربع، ارفعي ساقك للخلف والأعلى، اضغطي القلوتس في الأعلى</div>
+      </div>
+      <div class="exercise-card mint-border">
+        <div class="exercise-name" data-ar="كلام شيل (Clamshell)" data-en="Clamshell">كلام شيل (Clamshell)</div>
+        <div class="exercise-meta">
+          <span class="pill mint" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
+          <span class="pill mint" data-ar="20 كل جانب" data-en="20 each side">20 كل جانب</span>
+          <span class="pill" data-ar="بدون دمبلز" data-en="Bodyweight">بدون دمبلز</span>
+        </div>
+        <div class="exercise-tip" data-ar="استلقي على الجانب، ارفعي الركبة العلوية كغلاف المحار مع إبقاء القدمين معاً" data-en="Lie on side, raise top knee like a clamshell while keeping feet together">استلقي على الجانب، ارفعي الركبة العلوية كغلاف المحار مع إبقاء القدمين معاً</div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="workout-section">
+    <div class="workout-label sand">
+      <span>🌙</span>
+      <span data-ar="تهدئة — تمدد القلوتس والرجلين" data-en="Cool Down — Glute & Leg Stretch">تهدئة — تمدد القلوتس والرجلين</span>
+    </div>
+    <div class="exercise-grid">
+      <div class="exercise-card sand-border">
+        <div class="exercise-name" data-ar="تمدد الحمامة (Pigeon Pose)" data-en="Pigeon Pose">تمدد الحمامة (Pigeon Pose)</div>
+        <div class="exercise-meta"><span class="pill sand" data-ar="45 ث كل جانب" data-en="45s each side">45 ث كل جانب</span></div>
+      </div>
+      <div class="exercise-card sand-border">
+        <div class="exercise-name" data-ar="تمدد الهامسترينج" data-en="Hamstring Stretch">تمدد الهامسترينج</div>
+        <div class="exercise-meta"><span class="pill sand" data-ar="30 ث كل رجل" data-en="30s each leg">30 ث كل رجل</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <div style="text-align:center;margin-top:2.5rem">
+    <a href="monday.html" style="display:inline-block;background:var(--mint-text);color:white;padding:0.7rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.95rem" data-ar="التمرين التالي: الاثنين ←" data-en="Next: Monday →">التمرين التالي: الاثنين ←</a>
+  </div>
+</div>
+ 
+<footer>
+  <p data-ar="صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين" data-en="Made with <span>💕</span> for Reemas — Keep going, you're stronger than you think">صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين</p>
+</footer>
+ 
+<script>
+const LANG_KEY = 'reemas_lang';
+function getLang() { return localStorage.getItem(LANG_KEY) || 'ar'; }
+function applyLang(lang) {
+  document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('lang-en', lang !== 'ar');
+  document.querySelector('.lang-btn').textContent = lang === 'ar' ? 'EN' : 'عر';
+  document.querySelectorAll('[data-ar]').forEach(el => { const t = el.getAttribute('data-' + lang); if (t) el.innerHTML = t; });
+  localStorage.setItem(LANG_KEY, lang);
+}
+function toggleLang() { applyLang(getLang() === 'ar' ? 'en' : 'ar'); }
+applyLang(getLang());
+let t = 0, running = false, iv;
+function fmt(s) { return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0'); }
+function startTimer() { if (!running) { running = true; iv = setInterval(()=>{ t++; document.getElementById('timerDisplay').textContent = fmt(t); }, 1000); } }
+function pauseTimer() { running = false; clearInterval(iv); }
+function resetTimer() { pauseTimer(); t = 0; document.getElementById('timerDisplay').textContent = '00:00'; }
+</script>
+</body>
+</html>
+ 
