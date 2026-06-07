@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>رحلتي | ريماس فت</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">🌸 Remas fit</a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="saturday.html">السبت</a></li>
+      <li><a href="sunday.html">الأحد</a></li>
+      <li><a href="monday.html">الاثنين</a></li>
+      <li><a href="tuesday.html">الثلاثاء</a></li>
+      <li><a href="wednesday.html">الأربعاء</a></li>
+      <li><a href="my-journey.html" class="active">رحلتي </a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="section">
+
+  <div class="day-hero" style="background:linear-gradient(135deg,var(--blush) 0%,var(--mint) 50%,var(--sand) 100%)">
+    <span class="day-hero-emoji">⭐</span>
+    <h1>رحلتي</h1>
+    <p>أهدافك • تقدمك • تمارينك — كل شيء في مكان واحد</p>
+  </div>
+
+  <!-- التابات -->
+  <div class="journey-tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'progress')">📊 تقدمي</button>
+    <button class="tab-btn" onclick="switchTab(this,'goals')">🎯 أهدافي</button>
+    <button class="tab-btn" onclick="switchTab(this,'library')">📚 مكتبة التمارين</button>
+  </div>
+
+  <!-- ═══════════ تقدمي ═══════════ -->
+  <div class="tab-content active" id="tab-progress">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
+      <h2 class="section-title" style="margin:0">تتبع الأسابيع</h2>
+      <button class="save-btn" onclick="addWeek()">+ أضيفي أسبوعاً جديداً</button>
+    </div>
+    <p style="text-align:center;color:var(--text-light);font-size:0.88rem;margin-bottom:1.5rem">
+      اضغطي على الدائرة لتحديدها ✓ — يُحفظ تلقائياً في متصفحك
+    </p>
+
+    <div id="weeks-container"></div>
+
+    <div id="streak-box" style="display:none;background:var(--blush);border-radius:var(--radius-md);padding:1.2rem;text-align:center;margin-top:1rem">
+      <p id="streak-text" style="font-weight:700;color:var(--blush-text);font-size:1rem"></p>
+    </div>
+  </div>
+
+  <!-- ═══════════ أهدافي ═══════════ -->
+  <div class="tab-content" id="tab-goals">
+
+    <h2 class="section-title">أهدافي الشخصية</h2>
+    <p class="section-sub">اكتبي أهدافك — تُحفظ تلقائياً في متصفحك</p>
+
+    <div class="goals-grid">
+      <div class="goal-card">
+        <span class="goal-icon">💪</span>
+        <h3>هدف الصدر</h3>
+        <input class="goal-input" id="goal-chest" type="text" placeholder="مثال: تمرين بوش آب كامل" oninput="saveGoal('chest',this.value)"/>
+      </div>
+      <div class="goal-card">
+        <span class="goal-icon">🍑</span>
+        <h3>هدف القلوتس</h3>
+        <input class="goal-input" id="goal-glutes" type="text" placeholder="مثال: رفع الوزن في الهيب ثراست" oninput="saveGoal('glutes',this.value)"/>
+      </div>
+      <div class="goal-card">
+        <span class="goal-icon">⚡</span>
+        <h3>هدف الخصر</h3>
+        <input class="goal-input" id="goal-waist" type="text" placeholder="مثال: بلانك دقيقة كاملة" oninput="saveGoal('waist',this.value)"/>
+      </div>
+      <div class="goal-card">
+        <span class="goal-icon">🚴‍♀️</span>
+        <h3>هدف الدراجة</h3>
+        <input class="goal-input" id="goal-bike" type="text" placeholder="مثال: 30 دقيقة HIIT" oninput="saveGoal('bike',this.value)"/>
+      </div>
+      <div class="goal-card">
+        <span class="goal-icon">🌟</span>
+        <h3>هدفي الكبير</h3>
+        <input class="goal-input" id="goal-main" type="text" placeholder="اكتبي حلمك..." oninput="saveGoal('main',this.value)"/>
+      </div>
+      <div class="goal-card">
+        <span class="goal-icon">📅</span>
+        <h3>بدأت في</h3>
+        <input class="goal-input" id="goal-start" type="date" oninput="saveGoal('start',this.value)"/>
+      </div>
+    </div>
+
+    <div style="background:var(--mint);border-radius:var(--radius-md);padding:1.5rem;margin-top:2rem;text-align:center">
+      <p style="font-weight:700;color:var(--mint-text);font-size:1rem">🌿 تذكري: أنتِ تتدربين لأنك تحبين جسمك، مو لتغييره</p>
+    </div>
+  </div>
+
+  <!-- ═══════════ مكتبة التمارين ═══════════ -->
+  <div class="tab-content" id="tab-library">
+
+    <h2 class="section-title">مكتبة التمارين</h2>
+    <p class="section-sub">كل تمارينك في مكان واحد للرجوع إليها</p>
+
+    <div class="library-filter">
+      <button class="filter-btn active" onclick="filterLib(this,'all')">الكل</button>
+      <button class="filter-btn" onclick="filterLib(this,'chest')">💪 صدر</button>
+      <button class="filter-btn" onclick="filterLib(this,'glutes')">🍑 قلوتس</button>
+      <button class="filter-btn" onclick="filterLib(this,'waist')">⚡ خصر</button>
+      <button class="filter-btn" onclick="filterLib(this,'bike')">🚴‍♀️ دراجة</button>
+    </div>
+
+    <div class="exercise-grid" id="library-grid"></div>
+  </div>
+
+</div>
+
+<footer>
+  <p>صُنع بـ <span>💕</span>  — استمري، أنتِ أقوى مما تتخيلين</p>
+</footer>
+
+<script>
+/* ── تابات ── */
+function switchTab(btn, name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── تقدم ── */
+const DAY_NAMES = ['السبت','الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة'];
+const DAY_SHORT = ['س','أح','إث','ث','أر','خ','ج'];
+const IS_REST   = [false,false,false,false,false,true,true];
+
+function getProgress() { try { return JSON.parse(localStorage.getItem('reemas_progress')||'[]'); } catch { return []; } }
+function setProgress(d) { localStorage.setItem('reemas_progress', JSON.stringify(d)); }
+
+function addWeek() {
+  const d = getProgress();
+  d.push({ note:'', days:[false,false,false,false,false,false,false] });
+  setProgress(d);
+  renderWeeks();
+}
+
+function toggleDay(wi, di) {
+  const d = getProgress();
+  d[wi].days[di] = !d[wi].days[di];
+  setProgress(d);
+  renderWeeks();
+}
+
+function saveNote(wi, val) {
+  const d = getProgress();
+  d[wi].note = val;
+  setProgress(d);
+}
+
+function deleteWeek(wi) {
+  const d = getProgress();
+  d.splice(wi, 1);
+  setProgress(d);
+  renderWeeks();
+}
+
+function renderWeeks() {
+  const data = getProgress();
+  const box = document.getElementById('weeks-container');
+
+  if (!data.length) {
+    box.innerHTML = `<div style="text-align:center;padding:2.5rem;color:var(--text-light)">
+      <p style="font-size:1rem">🌸 أضيفي أسبوعك الأول للبداية!</p></div>`;
+    document.getElementById('streak-box').style.display = 'none';
+    return;
+  }
+
+  box.innerHTML = data.map((w, wi) => {
+    const activeDone = w.days.slice(0,5).filter(Boolean).length;
+    return `<div class="progress-week">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+        <h3>الأسبوع ${wi+1} &nbsp;<span style="font-size:0.8rem;color:var(--text-light);font-weight:400">${activeDone}/5 أيام نشاط</span></h3>
+        <button onclick="deleteWeek(${wi})" style="background:none;border:none;color:var(--text-light);cursor:pointer;font-size:0.85rem;font-family:Tajawal,sans-serif">🗑 حذف</button>
+      </div>
+      <div class="progress-days">
+        ${w.days.map((done,di) => `
+          <div title="${DAY_NAMES[di]}"
+               class="progress-day${done?' done':''}${IS_REST[di]?' rest-day':''}"
+               onclick="toggleDay(${wi},${di})">
+            ${done ? '✓' : DAY_SHORT[di]}
+          </div>`).join('')}
+      </div>
+      <div style="margin-top:0.5rem;font-size:0.78rem;color:var(--text-light);display:flex;gap:1rem;flex-wrap:wrap">
+        <span>🔵 نشاط &nbsp; 🟢 راحة</span>
+        <span style="margin-right:auto">${w.days.filter(Boolean).length}/7 محدد</span>
+      </div>
+      <div class="note-box">
+        <textarea placeholder="📝 ملاحظات الأسبوع..."
+          oninput="saveNote(${wi},this.value)">${w.note||''}</textarea>
+      </div>
+    </div>`;
+  }).join('');
+
+  // streak
+  const total = data.reduce((a,w) => a + w.days.slice(0,5).filter(Boolean).length, 0);
+  const sbox = document.getElementById('streak-box');
+  if (total > 0) {
+    sbox.style.display = 'block';
+    document.getElementById('streak-text').textContent = `🔥 أكملتِ ${total} يوم تمرين حتى الآن — رائعة يا ريماس!`;
+  } else {
+    sbox.style.display = 'none';
+  }
+}
+
+/* ── أهداف ── */
+function saveGoal(k,v) { localStorage.setItem('reemas_goal_'+k, v); }
+function loadGoals() {
+  ['chest','glutes','waist','bike','main','start'].forEach(k => {
+    const el = document.getElementById('goal-'+k);
+    const v  = localStorage.getItem('reemas_goal_'+k);
+    if (el && v) el.value = v;
+  });
+}
+
+/* ── مكتبة ── */
+const EX = [
+  {c:'chest', n:'تمرين الفلاي',          s:'3×12',   w:'5 كيلو',     t:'ذراعان على شكل هلال، إبقاء الكوع مقوساً'},
+  {c:'chest', n:'الضغط بالدمبلز',        s:'3×10',   w:'5 كيلو',     t:'ارفعي عمودياً ثم أنزلي بتحكم'},
+  {c:'chest', n:'بوش آب معدّل',          s:'3×10',   w:'وزن الجسم',  t:'ركبتان على الأرض، جسم مستقيم'},
+  {c:'chest', n:'البولوفر',              s:'3×12',   w:'5 كيلو',     t:'من الصدر خلف الرأس ببطء'},
+  {c:'chest', n:'إنكلاين برس',           s:'3×12',   w:'5 كيلو',     t:'يركز على الجزء العلوي للصدر'},
+  {c:'glutes',n:'سكوات جوبلت',           s:'4×15',   w:'5 كيلو',     t:'ركبتان خارج أصابع القدمين'},
+  {c:'glutes',n:'هيب ثراست',             s:'4×15',   w:'5 كيلو',     t:'اضغطي القلوتس جيداً في الأعلى'},
+  {c:'glutes',n:'رومانيان ديدليفت',       s:'3×12',   w:'5 كيلو',     t:'اشعري بالشد بالهامسترينج'},
+  {c:'glutes',n:'لانج عكسي',             s:'3×10/ر', w:'5 كيلو',     t:'خطوة للخلف وارجعي بقوة'},
+  {c:'glutes',n:'كيك باك',               s:'3×15/ر', w:'وزن الجسم',  t:'ارفعي للخلف واضغطي القلوتس'},
+  {c:'glutes',n:'كلام شيل',              s:'3×20/ج', w:'وزن الجسم',  t:'قدمان معاً، افتحي الركبة للأعلى'},
+  {c:'glutes',n:'سكوات النبض',           s:'3×20',   w:'وزن الجسم',  t:'ابقي في الأسفل وانبضي'},
+  {c:'waist', n:'ميل جانبي',             s:'3×15/ج', w:'2 كيلو',     t:'ببطء وتحكم كامل'},
+  {c:'waist', n:'دوران روسي',            s:'3×20',   w:'2 كيلو',     t:'دوري يميناً وشمالاً'},
+  {c:'waist', n:'الطاحونة',              s:'3×10/ج', w:'2 كيلو',     t:'ذراع ممتدة للأعلى دايماً'},
+  {c:'waist', n:'البلانك',               s:'3×30 ث', w:'وزن الجسم',  t:'جسم مستقيم، شدي الكور'},
+  {c:'waist', n:'المقص',                 s:'3×20',   w:'وزن الجسم',  t:'أيدٍ تحت الحوض للدعم'},
+  {c:'waist', n:'بايسيكل كرانش',         s:'3×20/ج', w:'وزن الجسم',  t:'كوع للركبة المعاكسة'},
+  {c:'bike',  n:'كارديو HIIT',           s:'20 د',   w:'دراجة',      t:'30ث سريع / 60ث هادئ × 8'},
+  {c:'bike',  n:'كارديو ثابت',           s:'25 د',   w:'دراجة',      t:'سرعة متوسطة ثابتة'},
+];
+
+const COLORS = { chest:'', glutes:'mint-border', waist:'sand-border', bike:'mint-border' };
+const PILLS  = { chest:'blush', glutes:'mint', waist:'sand', bike:'mint' };
+let curFilter = 'all';
+
+function filterLib(btn, cat) {
+  curFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderLib();
+}
+
+function renderLib() {
+  const list = curFilter === 'all' ? EX : EX.filter(e => e.c === curFilter);
+  document.getElementById('library-grid').innerHTML = list.map(e => `
+    <div class="exercise-card ${COLORS[e.c]||''}">
+      <div class="exercise-name">${e.n}</div>
+      <div class="exercise-meta">
+        <span class="pill ${PILLS[e.c]}">${e.s}</span>
+        <span class="pill">${e.w}</span>
+      </div>
+      <div class="exercise-tip">${e.t}</div>
+    </div>`).join('');
+}
+
+/* ── تهيئة ── */
+renderWeeks();
+loadGoals();
+renderLib();
+</script>
+</body>
+</html>

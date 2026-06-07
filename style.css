@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Playfair+Display:wght@400;600&family=Nunito:wght@300;400;600;700&display=swap');
- 
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:wght@400;600&display=swap');
+
 :root {
   --blush: #F7C5D0;
   --blush-dark: #e8a0b5;
@@ -23,104 +23,79 @@
   --shadow-card: 0 8px 32px rgba(180,120,140,0.13);
   --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
 }
- 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
- 
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
- 
+
 body {
-  font-family: 'Nunito', 'Tajawal', sans-serif;
+  font-family: 'Tajawal', sans-serif;
   background-color: var(--cream);
   color: var(--text-dark);
   min-height: 100vh;
   direction: rtl;
+  overflow-x: hidden;
+  width: 100%;
 }
- 
-body.lang-en {
-  direction: ltr;
-  font-family: 'Nunito', sans-serif;
-}
- 
+
 /* ─── NAV ─── */
 nav {
-  background: rgba(253,246,240,0.92);
+  background: rgba(253,246,240,0.95);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1.5px solid var(--blush);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
- 
+
 .nav-inner {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  gap: 1rem;
+  box-sizing: border-box;
+  gap: 0.5rem;
 }
- 
+
 .nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.35rem;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
   color: var(--blush-text);
   text-decoration: none;
-  letter-spacing: 0.5px;
   white-space: nowrap;
 }
- 
+
 .nav-links {
   display: flex;
-  gap: 0.3rem;
+  gap: 0.2rem;
   list-style: none;
   flex-wrap: wrap;
   justify-content: center;
 }
- 
+
 .nav-links a {
   text-decoration: none;
   color: var(--text-mid);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 50px;
   transition: var(--transition);
 }
- 
+
 .nav-links a:hover,
 .nav-links a.active {
   background: var(--blush);
   color: var(--blush-text);
 }
- 
-.lang-btn {
-  background: var(--mint);
-  color: var(--mint-text);
-  border: none;
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition);
-  white-space: nowrap;
-}
- 
-.lang-btn:hover {
-  background: var(--mint-dark);
-  transform: scale(1.05);
-}
- 
+
 /* ─── HERO ─── */
 .hero {
   max-width: 1100px;
@@ -128,41 +103,40 @@ nav {
   padding: 0 2rem;
   text-align: center;
 }
- 
+
 .hero-badge {
   display: inline-block;
   background: var(--blush);
   color: var(--blush-text);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  padding: 0.4rem 1.2rem;
+  padding: 0.4rem 1.4rem;
   border-radius: 50px;
   margin-bottom: 1.2rem;
   animation: fadeUp 0.6s ease both;
 }
- 
+
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-family: 'Tajawal', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
   color: var(--text-dark);
-  line-height: 1.25;
+  line-height: 1.3;
   margin-bottom: 1rem;
   animation: fadeUp 0.7s ease both;
 }
- 
-.hero h1 span {
-  color: var(--blush-text);
-}
- 
+
+.hero h1 span { color: var(--blush-text); }
+
 .hero-sub {
   font-size: 1.05rem;
   color: var(--text-mid);
-  max-width: 540px;
+  max-width: 520px;
   margin: 0 auto 2rem;
-  line-height: 1.7;
+  line-height: 1.8;
   animation: fadeUp 0.8s ease both;
 }
- 
+
 /* ─── QUOTE CARDS ─── */
 .quotes-grid {
   display: grid;
@@ -172,69 +146,64 @@ nav {
   margin: 2.5rem auto;
   padding: 0 2rem;
 }
- 
+
 .quote-card {
   border-radius: var(--radius-md);
   padding: 1.6rem 1.4rem;
   position: relative;
   overflow: hidden;
-  animation: fadeUp 0.8s ease both;
   box-shadow: var(--shadow-soft);
+  animation: fadeUp 0.8s ease both;
 }
- 
+
 .quote-card:nth-child(1) { background: var(--blush); animation-delay: 0.1s; }
-.quote-card:nth-child(2) { background: var(--mint); animation-delay: 0.2s; }
-.quote-card:nth-child(3) { background: var(--sand); animation-delay: 0.3s; }
- 
+.quote-card:nth-child(2) { background: var(--mint);  animation-delay: 0.2s; }
+.quote-card:nth-child(3) { background: var(--sand);  animation-delay: 0.3s; }
+
 .quote-card::before {
   content: '❝';
   position: absolute;
-  top: -8px;
-  right: 16px;
+  top: -8px; right: 16px;
   font-size: 4rem;
   opacity: 0.12;
   font-family: serif;
 }
- 
-.quote-card p {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.6;
-  color: var(--text-dark);
+
+.quote-card p  { font-size: 1rem; font-weight: 600; line-height: 1.7; color: var(--text-dark); }
+.quote-card span { display: block; margin-top: 0.6rem; font-size: 0.82rem; color: var(--text-mid); }
+
+/* ─── SECTION ─── */
+.section {
+  max-width: 1100px;
+  width: 100%;
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
- 
-.quote-card span {
-  display: block;
-  margin-top: 0.6rem;
-  font-size: 0.8rem;
-  color: var(--text-mid);
-}
- 
-/* ─── WEEK OVERVIEW ─── */
+
 .section-title {
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Tajawal', sans-serif;
   font-size: 1.7rem;
+  font-weight: 800;
   color: var(--text-dark);
   margin-bottom: 0.4rem;
 }
- 
+
 .section-sub {
   text-align: center;
   color: var(--text-light);
   font-size: 0.92rem;
   margin-bottom: 2rem;
 }
- 
+
+/* ─── WEEK GRID ─── */
 .week-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
- 
+
 .day-card {
   background: var(--white);
   border-radius: var(--radius-md);
@@ -247,45 +216,20 @@ nav {
   border: 2px solid transparent;
   display: block;
 }
- 
+
 .day-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-card);
   border-color: var(--blush);
 }
- 
-.day-card.rest {
-  background: var(--cream-2);
-  opacity: 0.85;
-}
- 
-.day-emoji {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
- 
-.day-name {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-dark);
-  display: block;
-  margin-bottom: 0.25rem;
-}
- 
-.day-focus {
-  font-size: 0.78rem;
-  color: var(--text-light);
-}
- 
-/* ─── SECTION WRAPPER ─── */
-.section {
-  max-width: 1100px;
-  margin: 3.5rem auto;
-  padding: 0 2rem;
-}
- 
-/* ─── DAY PAGE ─── */
+
+.day-card.rest { background: var(--cream-2); opacity: 0.85; cursor: default; }
+
+.day-emoji  { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+.day-name   { font-weight: 700; font-size: 0.95rem; color: var(--text-dark); display: block; margin-bottom: 0.25rem; }
+.day-focus  { font-size: 0.78rem; color: var(--text-light); }
+
+/* ─── DAY HERO ─── */
 .day-hero {
   background: linear-gradient(135deg, var(--blush) 0%, var(--sand) 100%);
   border-radius: var(--radius-lg);
@@ -295,163 +239,215 @@ nav {
   position: relative;
   overflow: hidden;
 }
- 
+
 .day-hero::after {
   content: '';
   position: absolute;
-  bottom: -30px;
-  left: -30px;
-  width: 120px;
-  height: 120px;
+  bottom: -30px; left: -30px;
+  width: 120px; height: 120px;
   background: rgba(255,255,255,0.15);
   border-radius: 50%;
 }
- 
-.day-hero-emoji {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
- 
-.day-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--text-dark);
-  margin-bottom: 0.4rem;
-}
- 
-.day-hero p {
-  color: var(--text-mid);
-  font-size: 0.95rem;
-}
- 
-/* ─── WORKOUT BLOCKS ─── */
-.workout-section {
+
+.day-hero-emoji { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+.day-hero h1 { font-family: 'Tajawal', sans-serif; font-weight: 800; font-size: 1.9rem; color: var(--text-dark); margin-bottom: 0.4rem; }
+.day-hero p  { color: var(--text-mid); font-size: 0.95rem; }
+
+/* ─── TIMER ─── */
+.timer-bar {
+  background: var(--mint);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
- 
+
+.timer-label   { font-size: 0.8rem; font-weight: 700; color: var(--mint-text); }
+.timer-display { font-family: 'Tajawal', sans-serif; font-size: 2rem; font-weight: 700; color: var(--mint-text); }
+.timer-controls { display: flex; gap: 0.6rem; }
+
+.timer-btn {
+  background: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.45rem 1.1rem;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--mint-text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.timer-btn:hover { background: var(--mint-dark); }
+
+/* ─── WORKOUT BLOCKS ─── */
+.workout-section { margin-bottom: 2.2rem; width: 100%; box-sizing: border-box; }
+
 .workout-label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: var(--blush);
   color: var(--blush-text);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1.1rem;
   border-radius: 50px;
   margin-bottom: 1rem;
 }
- 
 .workout-label.mint { background: var(--mint); color: var(--mint-text); }
 .workout-label.sand { background: var(--sand); color: var(--sand-text); }
- 
+
 .exercise-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
- 
+
 .exercise-card {
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: 1.3rem 1.2rem;
+  padding: 0.9rem 1rem;
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
   border-right: 4px solid var(--blush);
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
- 
-body.lang-en .exercise-card {
-  border-right: none;
-  border-left: 4px solid var(--blush);
-}
- 
 .exercise-card.mint-border { border-color: var(--mint-dark); }
 .exercise-card.sand-border { border-color: var(--sand-dark); }
- 
-.exercise-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card);
+.exercise-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+
+/* صورة صغيرة ثابتة على اليمين */
+.exercise-img {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  background: var(--cream);
+  flex-shrink: 0;
 }
- 
+
+.exercise-img-placeholder {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  border-radius: 10px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.15rem;
+  border: 2px dashed var(--blush-dark);
+  color: var(--text-light);
+  font-size: 0.58rem;
+  font-family: 'Tajawal', sans-serif;
+  text-align: center;
+  padding: 0.3rem;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+.exercise-img-placeholder span { font-size: 1.3rem; display: block; }
+
+/* النص على اليسار */
+.exercise-body {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
 .exercise-name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-dark);
   margin-bottom: 0.4rem;
+  line-height: 1.4;
+  word-wrap: break-word;
 }
- 
+
 .exercise-meta {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.35rem;
   flex-wrap: wrap;
+  margin-bottom: 0.35rem;
 }
- 
+
 .pill {
   background: var(--cream);
   color: var(--text-mid);
-  font-size: 0.78rem;
+  font-size: 0.73rem;
   font-weight: 600;
-  padding: 0.25rem 0.7rem;
+  padding: 0.18rem 0.55rem;
   border-radius: 50px;
+  white-space: nowrap;
 }
- 
 .pill.blush { background: var(--blush); color: var(--blush-text); }
-.pill.mint { background: var(--mint); color: var(--mint-text); }
-.pill.sand { background: var(--sand); color: var(--sand-text); }
- 
+.pill.mint  { background: var(--mint);  color: var(--mint-text); }
+.pill.sand  { background: var(--sand);  color: var(--sand-text); }
+
 .exercise-tip {
-  margin-top: 0.6rem;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--text-light);
-  line-height: 1.5;
+  line-height: 1.55;
+  word-wrap: break-word;
 }
- 
-/* ─── REST DAY ─── */
-.rest-hero {
+
+/* ─── BIKE ─── */
+.bike-card {
   background: linear-gradient(135deg, var(--mint) 0%, var(--sand) 100%);
-}
- 
-.steps-card {
-  background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  text-align: center;
-  box-shadow: var(--shadow-card);
-  max-width: 400px;
-  margin: 2rem auto;
+  padding: 1.8rem;
+  margin-bottom: 1rem;
 }
- 
-.steps-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: var(--blush-text);
-  display: block;
-}
- 
-.steps-label {
-  color: var(--text-mid);
-  font-size: 0.95rem;
-}
- 
-.rest-tips {
+.bike-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
+
+.bike-intervals {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.8rem;
 }
- 
-.rest-tip-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 1.3rem;
+
+.interval-step {
+  background: rgba(255,255,255,0.65);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
   text-align: center;
-  box-shadow: var(--shadow-soft);
 }
- 
-.rest-tip-icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
-.rest-tip-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
- 
+.interval-step .time { font-family: 'Tajawal', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--mint-text); display: block; }
+.interval-step .desc { font-size: 0.82rem; color: var(--text-mid); }
+
+/* ─── NEXT BTN ─── */
+.next-btn {
+  display: inline-block;
+  background: var(--blush-text);
+  color: white;
+  padding: 0.7rem 2.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.next-btn:hover { opacity: 0.88; transform: scale(1.03); }
+.next-btn.mint  { background: var(--mint-text); }
+.next-btn.sand  { background: var(--sand-text); }
+
 /* ─── JOURNEY PAGE ─── */
 .journey-tabs {
   display: flex;
@@ -465,29 +461,24 @@ body.lang-en .exercise-card {
   flex-wrap: wrap;
   justify-content: center;
 }
- 
+
 .tab-btn {
   background: transparent;
   border: none;
   padding: 0.5rem 1.3rem;
   border-radius: 50px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--text-mid);
   cursor: pointer;
   transition: var(--transition);
 }
- 
-.tab-btn.active {
-  background: var(--blush);
-  color: var(--blush-text);
-}
- 
+.tab-btn.active { background: var(--blush); color: var(--blush-text); }
+
 .tab-content { display: none; }
-.tab-content.active { display: block; }
- 
-/* Progress */
+.tab-content.active { display: block; animation: fadeUp 0.4s ease both; }
+
 .progress-week {
   background: var(--white);
   border-radius: var(--radius-md);
@@ -495,81 +486,50 @@ body.lang-en .exercise-card {
   box-shadow: var(--shadow-soft);
   margin-bottom: 1.2rem;
 }
- 
-.progress-week h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-}
- 
-.progress-days {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
- 
+.progress-week h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-dark); }
+
+.progress-days { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
 .progress-day {
-  width: 44px;
-  height: 44px;
+  width: 46px; height: 46px;
   border-radius: 50%;
   border: 2px solid var(--blush);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700;
   color: var(--text-light);
   cursor: pointer;
   transition: var(--transition);
+  user-select: none;
 }
- 
-.progress-day.done {
-  background: var(--blush);
-  color: var(--blush-text);
-  border-color: var(--blush-dark);
-}
- 
-.progress-day.rest-day {
-  border-color: var(--mint);
-  color: var(--mint-text);
-}
- 
-.progress-day.rest-day.done {
-  background: var(--mint);
-}
- 
-.note-box {
-  margin-top: 1rem;
-}
- 
+.progress-day:hover { transform: scale(1.1); }
+.progress-day.done { background: var(--blush); color: var(--blush-text); border-color: var(--blush-dark); }
+.progress-day.rest-day { border-color: var(--mint); color: var(--mint-text); }
+.progress-day.rest-day.done { background: var(--mint); }
+
 .note-box textarea {
   width: 100%;
   border: 1.5px solid var(--blush);
   border-radius: var(--radius-sm);
   padding: 0.8rem 1rem;
-  font-family: inherit;
-  font-size: 0.9rem;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.92rem;
   color: var(--text-dark);
   background: var(--cream);
   resize: vertical;
-  min-height: 80px;
+  min-height: 70px;
   outline: none;
   transition: var(--transition);
+  margin-top: 1rem;
+  direction: rtl;
 }
- 
-.note-box textarea:focus {
-  border-color: var(--blush-dark);
-  background: var(--white);
-}
- 
-/* Goals */
+.note-box textarea:focus { border-color: var(--blush-dark); background: var(--white); }
+
 .goals-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.2rem;
 }
- 
+
 .goal-card {
   background: var(--white);
   border-radius: var(--radius-md);
@@ -577,36 +537,25 @@ body.lang-en .exercise-card {
   box-shadow: var(--shadow-soft);
   text-align: center;
 }
- 
 .goal-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
- 
-.goal-card h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 0.8rem;
-}
- 
+.goal-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.8rem; }
+
 .goal-input {
   width: 100%;
   border: 1.5px solid var(--blush);
   border-radius: var(--radius-sm);
   padding: 0.6rem 0.9rem;
-  font-family: inherit;
+  font-family: 'Tajawal', sans-serif;
   font-size: 0.9rem;
   color: var(--text-dark);
   background: var(--cream);
   outline: none;
   transition: var(--transition);
   text-align: center;
+  direction: rtl;
 }
- 
-.goal-input:focus {
-  border-color: var(--blush-dark);
-  background: var(--white);
-}
- 
-/* Exercises Library */
+.goal-input:focus { border-color: var(--blush-dark); background: var(--white); }
+
 .library-filter {
   display: flex;
   gap: 0.5rem;
@@ -614,152 +563,57 @@ body.lang-en .exercise-card {
   margin-bottom: 1.5rem;
   justify-content: center;
 }
- 
+
 .filter-btn {
   background: var(--white);
   border: 1.5px solid var(--blush);
   color: var(--blush-text);
   padding: 0.4rem 1rem;
   border-radius: 50px;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
 }
- 
-.filter-btn.active,
-.filter-btn:hover {
-  background: var(--blush);
-}
- 
+.filter-btn.active, .filter-btn:hover { background: var(--blush); }
+
 .save-btn {
   background: var(--blush-text);
   color: white;
   border: none;
-  padding: 0.6rem 1.8rem;
+  padding: 0.6rem 1.6rem;
   border-radius: 50px;
-  font-family: inherit;
-  font-size: 0.9rem;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
-  margin-top: 1rem;
 }
- 
-.save-btn:hover {
-  background: var(--blush-dark);
-  transform: scale(1.03);
-}
- 
+.save-btn:hover { opacity: 0.88; transform: scale(1.03); }
+
 /* ─── FOOTER ─── */
 footer {
   text-align: center;
   padding: 2.5rem 1rem;
   color: var(--text-light);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   border-top: 1.5px solid var(--blush);
   margin-top: 3rem;
 }
- 
 footer span { color: var(--blush-text); }
- 
-/* ─── TIMER ─── */
-.timer-bar {
-  background: var(--mint);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
- 
-.timer-display {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--mint-text);
-  font-weight: 600;
-}
- 
-.timer-controls { display: flex; gap: 0.6rem; }
- 
-.timer-btn {
-  background: var(--white);
-  border: none;
-  border-radius: 50px;
-  padding: 0.45rem 1.1rem;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--mint-text);
-  cursor: pointer;
-  transition: var(--transition);
-}
- 
-.timer-btn:hover { background: var(--mint-dark); }
- 
-/* ─── BIKE SECTION ─── */
-.bike-card {
-  background: linear-gradient(135deg, var(--mint) 0%, var(--sand) 100%);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem;
-  margin-bottom: 2rem;
-}
- 
-.bike-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 1rem;
-}
- 
-.bike-intervals {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.8rem;
-}
- 
-.interval-step {
-  background: rgba(255,255,255,0.65);
-  border-radius: var(--radius-sm);
-  padding: 1rem;
-  text-align: center;
-}
- 
-.interval-step .time {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--mint-text);
-  font-weight: 600;
-  display: block;
-}
- 
-.interval-step .desc {
-  font-size: 0.8rem;
-  color: var(--text-mid);
-}
- 
+
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
- 
-.fade-up {
-  animation: fadeUp 0.6s ease both;
-}
- 
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 640px) {
   .nav-links { display: none; }
-  .nav-inner { justify-content: space-between; }
-  .hero { margin-top: 1.5rem; }
   .week-grid { grid-template-columns: repeat(3, 1fr); }
-  .day-card { padding: 1rem 0.5rem; }
+  .day-card  { padding: 1rem 0.5rem; }
   .day-emoji { font-size: 1.5rem; }
-  .day-name { font-size: 0.8rem; }
+  .day-name  { font-size: 0.78rem; }
 }
- 

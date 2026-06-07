@@ -3,194 +3,149 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>السبت — صدر + دراجة | Reemas Fit</title>
+<title>السبت — صدر + دراجة | ريماس فت</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
- 
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">🌸 ريماس فت</a>
     <ul class="nav-links">
-      <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
-      <li><a href="saturday.html" class="active" data-ar="السبت" data-en="Sat">السبت</a></li>
-      <li><a href="sunday.html" data-ar="الأحد" data-en="Sun">الأحد</a></li>
-      <li><a href="monday.html" data-ar="الاثنين" data-en="Mon">الاثنين</a></li>
-      <li><a href="tuesday.html" data-ar="الثلاثاء" data-en="Tue">الثلاثاء</a></li>
-      <li><a href="wednesday.html" data-ar="الأربعاء" data-en="Wed">الأربعاء</a></li>
-      <li><a href="my-journey.html" data-ar="رحلتي" data-en="My Journey">رحلتي</a></li>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="saturday.html" class="active">السبت</a></li>
+      <li><a href="sunday.html">الأحد</a></li>
+      <li><a href="monday.html">الاثنين</a></li>
+      <li><a href="tuesday.html">الثلاثاء</a></li>
+      <li><a href="wednesday.html">الأربعاء</a></li>
+      <li><a href="my-journey.html">رحلتي ⭐</a></li>
     </ul>
-    <button class="lang-btn" onclick="toggleLang()">EN</button>
   </div>
 </nav>
- 
+
 <div class="section">
   <div class="day-hero">
     <span class="day-hero-emoji">💪</span>
-    <h1 data-ar="السبت — يوم الصدر والدراجة" data-en="Saturday — Chest & Bike Day">السبت — يوم الصدر والدراجة</h1>
-    <p data-ar="ابدأي بالدفء • المدة الكاملة: ~50 دقيقة" data-en="Start with warm-up • Total duration: ~50 min">ابدأي بالدفء • المدة الكاملة: ~50 دقيقة</p>
+    <h1>السبت — يوم الصدر والدراجة</h1>
+    <p>ابدأي بالإحماء • المدة الكاملة: ~50 دقيقة</p>
   </div>
- 
-  <!-- Timer -->
+
   <div class="timer-bar">
     <div>
-      <div style="font-size:0.8rem;font-weight:700;color:var(--mint-text)" data-ar="⏱ مؤقت التمرين" data-en="⏱ Workout Timer">⏱ مؤقت التمرين</div>
+      <div class="timer-label">⏱ مؤقت التمرين</div>
       <div class="timer-display" id="timerDisplay">00:00</div>
     </div>
     <div class="timer-controls">
-      <button class="timer-btn" onclick="startTimer()" data-ar="▶ ابدأ" data-en="▶ Start">▶ ابدأ</button>
-      <button class="timer-btn" onclick="pauseTimer()" data-ar="⏸ وقفة" data-en="⏸ Pause">⏸ وقفة</button>
-      <button class="timer-btn" onclick="resetTimer()" data-ar="↺ إعادة" data-en="↺ Reset">↺ إعادة</button>
+      <button class="timer-btn" onclick="startTimer()">▶ ابدأ</button>
+      <button class="timer-btn" onclick="pauseTimer()">⏸ وقفة</button>
+      <button class="timer-btn" onclick="resetTimer()">↺ إعادة</button>
     </div>
   </div>
- 
-  <!-- Warm Up -->
+
   <div class="workout-section">
-    <div class="workout-label sand">
-      <span>🌅</span>
-      <span data-ar="إحماء — 5 دقائق" data-en="Warm-Up — 5 min">إحماء — 5 دقائق</span>
-    </div>
+    <div class="workout-label sand">🌅 إحماء — 5 دقائق</div>
     <div class="exercise-grid">
       <div class="exercise-card sand-border">
-        <div class="exercise-name" data-ar="دراجة خفيفة" data-en="Light Cycling">دراجة خفيفة</div>
-        <div class="exercise-meta">
-          <span class="pill sand" data-ar="5 دقائق" data-en="5 min">5 دقائق</span>
-          <span class="pill" data-ar="سرعة هادئة" data-en="Easy pace">سرعة هادئة</span>
+        <img class="exercise-img" src="images/bike.jpg" alt="دراجة إحماء" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>🚴‍♀️</span>bike.jpg</div>
+        <div class="exercise-body">
+        <div class="exercise-name">دراجة خفيفة</div>
+        <div class="exercise-meta"><span class="pill sand">5 دقائق</span><span class="pill">سرعة هادئة</span></div>
+        <div class="exercise-tip">دوري الكتفين والرسغين خلال الإحماء لتنشيط المفاصل</div>
         </div>
-        <div class="exercise-tip" data-ar="دوري الكتفين والرسغين خلال الإحماء" data-en="Roll your shoulders and wrists during warm-up">دوري الكتفين والرسغين خلال الإحماء</div>
       </div>
     </div>
   </div>
- 
-  <!-- Chest -->
+
   <div class="workout-section">
-    <div class="workout-label">
-      <span>💪</span>
-      <span data-ar="تمارين الصدر — دمبلز 5 كيلو" data-en="Chest Exercises — 5kg Dumbbells">تمارين الصدر — دمبلز 5 كيلو</span>
-    </div>
+    <div class="workout-label">💪 تمارين الصدر — دمبلز 5 كيلو</div>
     <div class="exercise-grid">
+
       <div class="exercise-card">
-        <div class="exercise-name" data-ar="تمرين الفلاي (Chest Fly)" data-en="Chest Fly">تمرين الفلاي (Chest Fly)</div>
-        <div class="exercise-meta">
-          <span class="pill blush" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
-          <span class="pill blush" data-ar="12 تكرار" data-en="12 reps">12 تكرار</span>
-          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        <img class="exercise-img" src="images/Chest Fly.jpg" alt="تمرين الفلاي" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>💪</span>Chest Fly.jpg</div>
+        <div class="exercise-body">
+        <div class="exercise-name">تمرين الفلاي (Chest Fly)</div>
+        <div class="exercise-meta"><span class="pill blush">3 جولات</span><span class="pill blush">12 تكرار</span><span class="pill">راحة 45 ث</span></div>
+        <div class="exercise-tip">استلقي على الأرض، افردي الذراعين للجانبين ثم ضميهم للأعلى مع إبقاء الكوع مقوساً قليلاً</div>
         </div>
-        <div class="exercise-tip" data-ar="استلقي على الأرض، افردي الذراعين للجانبين ثم ضميهم للأعلى مع إبقاء الكوع مقوساً قليلاً" data-en="Lie on floor, open arms to sides then bring up with slight elbow bend">استلقي على الأرض، افردي الذراعين للجانبين ثم ضميهم للأعلى مع إبقاء الكوع مقوساً قليلاً</div>
       </div>
+
       <div class="exercise-card">
-        <div class="exercise-name" data-ar="الضغط بالدمبلز (Dumbbell Press)" data-en="Dumbbell Press">الضغط بالدمبلز (Dumbbell Press)</div>
-        <div class="exercise-meta">
-          <span class="pill blush" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
-          <span class="pill blush" data-ar="10 تكرار" data-en="10 reps">10 تكرار</span>
-          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        <img class="exercise-img" src="images/Dumbbell Press.jpg" alt="الضغط بالدمبلز" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>💪</span>Dumbbell Press.jpg</div>
+        <div class="exercise-body">
+        <div class="exercise-name">الضغط بالدمبلز (Dumbbell Press)</div>
+        <div class="exercise-meta"><span class="pill blush">3 جولات</span><span class="pill blush">10 تكرار</span><span class="pill">راحة 45 ث</span></div>
+        <div class="exercise-tip">ارفعي الدمبلزين للأعلى بشكل عمودي ثم أنزليهم بتحكم وببطء</div>
         </div>
-        <div class="exercise-tip" data-ar="ارفعي الدمبلز للأعلى بشكل عمودي ثم أنزليهم بتحكم" data-en="Press dumbbells straight up then lower with control">ارفعي الدمبلز للأعلى بشكل عمودي ثم أنزليهم بتحكم</div>
       </div>
+
       <div class="exercise-card">
-        <div class="exercise-name" data-ar="بوش آب معدّل (Modified Push-Up)" data-en="Modified Push-Up">بوش آب معدّل (Modified Push-Up)</div>
-        <div class="exercise-meta">
-          <span class="pill blush" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
-          <span class="pill blush" data-ar="10 تكرار" data-en="10 reps">10 تكرار</span>
-          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        <img class="exercise-img" src="images/Push-Up.jpg" alt="بوش آب معدّل" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>💪</span>Push-Up.jpg</div>
+        <div class="exercise-body">
+        <div class="exercise-name">بوش آب معدّل (Modified Push-Up)</div>
+        <div class="exercise-meta"><span class="pill blush">3 جولات</span><span class="pill blush">10 تكرار</span><span class="pill">راحة 45 ث</span></div>
+        <div class="exercise-tip">الركبتين على الأرض، جسمك خط مستقيم من الركبة للكتف، أنزلي ببطء</div>
         </div>
-        <div class="exercise-tip" data-ar="الركبتين على الأرض، جسمك خط مستقيم من الركبة للكتف" data-en="Knees on floor, straight line from knee to shoulder">الركبتين على الأرض، جسمك خط مستقيم من الركبة للكتف</div>
       </div>
+
       <div class="exercise-card">
-        <div class="exercise-name" data-ar="تمرين الكابل الخيالي (Pullover)" data-en="Dumbbell Pullover">تمرين الكابل الخيالي (Pullover)</div>
-        <div class="exercise-meta">
-          <span class="pill blush" data-ar="3 جولات" data-en="3 sets">3 جولات</span>
-          <span class="pill blush" data-ar="12 تكرار" data-en="12 reps">12 تكرار</span>
-          <span class="pill" data-ar="راحة 45 ث" data-en="Rest 45s">راحة 45 ث</span>
+        <img class="exercise-img" src="images/Pullover.jpg" alt="البولوفر" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>💪</span>Pullover.jpg</div>
+        <div class="exercise-body">
+        <div class="exercise-name">البولوفر (Pullover)</div>
+        <div class="exercise-meta"><span class="pill blush">3 جولات</span><span class="pill blush">12 تكرار</span><span class="pill">راحة 45 ث</span></div>
+        <div class="exercise-tip">استلقي، أمسكي دمبل واحد بكلتا اليدين، حركيه من فوق الصدر خلف الرأس ببطء</div>
         </div>
-        <div class="exercise-tip" data-ar="استلقي، أمسكي دمبل واحد بكلتا اليدين، حركيه من الصدر خلف الرأس" data-en="Lie back, hold one dumbbell with both hands, arc from chest behind head">استلقي، أمسكي دمبل واحد بكلتا اليدين، حركيه من الصدر خلف الرأس</div>
       </div>
+
     </div>
   </div>
- 
-  <!-- Bike HIIT -->
+
   <div class="workout-section">
-    <div class="workout-label mint">
-      <span>🚴‍♀️</span>
-      <span data-ar="الدراجة — 20 دقيقة HIIT" data-en="Bike — 20 min HIIT">الدراجة — 20 دقيقة HIIT</span>
-    </div>
+    <div class="workout-label mint">🚴‍♀️ الدراجة — 20 دقيقة HIIT</div>
     <div class="bike-card">
-      <h3 data-ar="تناوب السرعة" data-en="Speed Intervals">تناوب السرعة</h3>
+      <h3>تناوب السرعة</h3>
       <div class="bike-intervals">
-        <div class="interval-step">
-          <span class="time">5 د</span>
-          <span class="desc" data-ar="إحماء هادئ" data-en="Easy warm-up">إحماء هادئ</span>
-        </div>
-        <div class="interval-step">
-          <span class="time">30 ث</span>
-          <span class="desc" data-ar="سرعة عالية 🔥" data-en="High speed 🔥">سرعة عالية 🔥</span>
-        </div>
-        <div class="interval-step">
-          <span class="time">60 ث</span>
-          <span class="desc" data-ar="هادئة تعافي" data-en="Easy recovery">هادئة تعافي</span>
-        </div>
-        <div class="interval-step">
-          <span class="time">×8</span>
-          <span class="desc" data-ar="كرري الجولة" data-en="Repeat round">كرري الجولة</span>
-        </div>
-        <div class="interval-step">
-          <span class="time">3 د</span>
-          <span class="desc" data-ar="تهدئة ختامية" data-en="Cool down">تهدئة ختامية</span>
-        </div>
+        <div class="interval-step"><span class="time">5 د</span><span class="desc">إحماء هادئ</span></div>
+        <div class="interval-step"><span class="time">30 ث</span><span class="desc">سرعة عالية 🔥</span></div>
+        <div class="interval-step"><span class="time">60 ث</span><span class="desc">تعافي هادئة</span></div>
+        <div class="interval-step"><span class="time">× 8</span><span class="desc">كرري الجولة</span></div>
+        <div class="interval-step"><span class="time">3 د</span><span class="desc">تهدئة ختامية</span></div>
       </div>
     </div>
   </div>
- 
-  <!-- Cooldown -->
+
   <div class="workout-section">
-    <div class="workout-label sand">
-      <span>🌙</span>
-      <span data-ar="تهدئة وتمدد — 5 دقائق" data-en="Cool Down & Stretch — 5 min">تهدئة وتمدد — 5 دقائق</span>
-    </div>
+    <div class="workout-label sand">🌙 تهدئة وتمدد — 5 دقائق</div>
     <div class="exercise-grid">
       <div class="exercise-card sand-border">
-        <div class="exercise-name" data-ar="تمدد الصدر على الحائط" data-en="Wall Chest Stretch">تمدد الصدر على الحائط</div>
-        <div class="exercise-meta"><span class="pill sand" data-ar="30 ث كل جانب" data-en="30s each side">30 ث كل جانب</span></div>
-      </div>
-      <div class="exercise-card sand-border">
-        <div class="exercise-name" data-ar="تنفس عميق" data-en="Deep Breathing">تنفس عميق</div>
-        <div class="exercise-meta"><span class="pill sand" data-ar="2 دقيقة" data-en="2 min">2 دقيقة</span></div>
+        <img class="exercise-img" src="images/Superman stretch.jpg" alt="سوبرمان ستريتش" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>🌙</span>Superman stretch.jpg</div>
+        <div class="exercise-body">
+        <div class="exercise-name">تمدد السوبرمان (Superman Stretch)</div>
+        <div class="exercise-meta"><span class="pill sand">30 ث × 3</span></div>
+        <div class="exercise-tip">استلقي على بطنك، ارفعي الذراعين والساقين معاً للأعلى، ثبتي ثانيتين</div>
+        </div>
       </div>
     </div>
   </div>
- 
+
   <div style="text-align:center;margin-top:2.5rem">
-    <a href="sunday.html" style="display:inline-block;background:var(--blush-text);color:white;padding:0.7rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.95rem" data-ar="التمرين التالي: الأحد ←" data-en="Next: Sunday →">التمرين التالي: الأحد ←</a>
+    <a class="next-btn" href="sunday.html">التمرين التالي: الأحد ←</a>
   </div>
 </div>
- 
+
 <footer>
-  <p data-ar="صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين" data-en="Made with <span>💕</span> for Reemas — Keep going, you're stronger than you think">صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين</p>
+  <p>صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين</p>
 </footer>
- 
 <script>
-const LANG_KEY = 'reemas_lang';
-function getLang() { return localStorage.getItem(LANG_KEY) || 'ar'; }
-function applyLang(lang) {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.body.classList.toggle('lang-en', lang !== 'ar');
-  document.querySelector('.lang-btn').textContent = lang === 'ar' ? 'EN' : 'عر';
-  document.querySelectorAll('[data-ar]').forEach(el => {
-    const txt = el.getAttribute('data-' + lang);
-    if (txt) el.innerHTML = txt;
-  });
-  localStorage.setItem(LANG_KEY, lang);
-}
-function toggleLang() { applyLang(getLang() === 'ar' ? 'en' : 'ar'); }
-applyLang(getLang());
- 
-let t = 0, running = false, iv;
-function fmt(s) { return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0'); }
-function startTimer() { if (!running) { running = true; iv = setInterval(()=>{ t++; document.getElementById('timerDisplay').textContent = fmt(t); }, 1000); } }
-function pauseTimer() { running = false; clearInterval(iv); }
-function resetTimer() { pauseTimer(); t = 0; document.getElementById('timerDisplay').textContent = '00:00'; }
+let t=0,running=false,iv;
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function startTimer(){if(!running){running=true;iv=setInterval(()=>{t++;document.getElementById('timerDisplay').textContent=fmt(t);},1000);}}
+function pauseTimer(){running=false;clearInterval(iv);}
+function resetTimer(){pauseTimer();t=0;document.getElementById('timerDisplay').textContent='00:00';}
 </script>
 </body>
 </html>
- 
