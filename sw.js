@@ -1,70 +1,59 @@
-const CACHE = 'reemas-fit-v1';
+const CACHE_NAME = 'reemas-fit-v2';
+const BASE = '/Remas-Fitness';
 
-const FILES = [
-  '/',
-  '/index.html',
-  '/saturday.html',
-  '/sunday.html',
-  '/monday.html',
-  '/tuesday.html',
-  '/wednesday.html',
-  '/my-journey.html',
-  '/style.css',
-  '/images/bike.jpg',
-  '/images/Chest Fly.jpg',
-  '/images/Dumbbell Press.jpg',
-  '/images/Push-Up.jpg',
-  '/images/Pullover.jpg',
-  '/images/Flat Fly.jpg',
-  '/images/Goblet Squat.jpg',
-  '/images/Hip Thrust.jpg',
-  '/images/Reverse Lunge.jpg',
-  '/images/Donkey Kick.jpg',
-  '/images/Clamshell.jpg',
-  '/images/Single Leg Bridge.jpg',
-  '/images/Pigeon Pose.jpg',
-  '/images/Hamstring stretch.jpg',
-  '/images/Side bend with dumbbell.jpg',
-  '/images/Russian twist.jpg',
-  '/images/Side Bend.jpg',
-  '/images/Plank.jpg',
-  '/images/Scissor Kicks.jpg',
-  '/images/Knee Tucks.jpg',
-  '/images/Bicycle Crunch.jpg',
-  '/images/High Knees.jpg',
-  '/images/Pulse Squat.jpg',
-  '/images/Standing Kickback.jpg',
-  '/images/Superman stretch.jpg'
+const PAGES = [
+  `${BASE}/index.html`,
+  `${BASE}/saturday.html`,
+  `${BASE}/sunday.html`,
+  `${BASE}/monday.html`,
+  `${BASE}/tuesday.html`,
+  `${BASE}/wednesday.html`,
+  `${BASE}/my-journey.html`,
+  `${BASE}/style.css`
 ];
 
-// تثبيت — حفظ كل الملفات
+// تثبيت — نحفظ كل الصفحات في الكاش
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(FILES))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(PAGES))
   );
   self.skipWaiting();
 });
 
-// تنشيط — حذف الكاش القديم
+// تفعيل — نحذف الكاش القديم
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+      Promise.all(
+        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+      )
     )
   );
   self.clients.claim();
 });
 
-// طلب — من الكاش أولاً، ثم الشبكة
+// طلب — نجيب من الكاش أولاً، لو ما لقينا نجيب من النت
 self.addEventListener('fetch', e => {
+  // نتجاهل طلبات خارج نطاق الموقع
+  if (!e.request.url.includes(BASE)) return;
+
   e.respondWith(
     caches.match(e.request).then(cached => {
-      return cached || fetch(e.request).then(res => {
-        if (!res || res.status !== 200) return res;
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
-        return res;
-      }).catch(() => cached);
+      if (cached) return cached;
+
+      return fetch(e.request).then(response => {
+        // نحفظ الصور في الكاش تلقائياً
+        if (e.request.url.includes('/images/') || e.request.url.includes('/icons/')) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(e.request, clone));
+        }
+        return response;
+      }).catch(() => {
+        // لو ما في إنترنت — نرجع الرئيسية من الكاش
+        if (e.request.destination === 'document') {
+          return caches.match(`${BASE}/index.html`);
+        }
+      });
     })
   );
 });

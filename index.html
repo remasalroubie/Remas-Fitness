@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="apple-mobile-web-app-title" content="ريماس فت"/>
+  <meta name="theme-color" content="#F7C5D0"/>
+  <link rel="apple-touch-icon" href="icons/icon-192.png"/>
 <title>ريماس فت — الرئيسية</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
@@ -10,7 +17,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">🌸 Remas fit</a>
+    <a class="nav-logo" href="index.html">🌸 ريماس فت</a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">الرئيسية</a></li>
       <li><a href="saturday.html">السبت</a></li>
@@ -18,26 +25,25 @@
       <li><a href="monday.html">الاثنين</a></li>
       <li><a href="tuesday.html">الثلاثاء</a></li>
       <li><a href="wednesday.html">الأربعاء</a></li>
-      <li><a href="my-journey.html">رحلتي </a></li>
+      <li><a href="my-journey.html">رحلتي ⭐</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-badge">✨ أهلاً ✨</div>
-  <h1>Prove yourself to yourself,<span> not to others</span></h1>
-  <p class="hero-sub">اثبت نفسك لنفسك وليس للاخرين</p>
-  <p class="hero-sub">موقعك الشخصي للرياضة المنزلية, مصمم خصيصاً لك و لأهدافك  🌸</p>
+  <div class="hero-badge">✨ أهلاً ريماس</div>
+  <h1>جسمك جميل، <span>حركته أجمل</span></h1>
+  <p class="hero-sub">موقعك الشخصي للرياضة المنزلية — مصمم خصيصاً لكِ، لأهدافكِ، ولجدولكِ الخاص 🌸</p>
 </div>
 
 <div class="quotes-grid">
   <div class="quote-card">
-    <p>كل تمرين هو هدية لنفسك 💝</p>
-    <span>— تذكر هذا دايماً</span>
+    <p>كل تمرين تعمليه هو هدية تقدمينها لنفسك 💝</p>
+    <span>— تذكري هذا دايماً</span>
   </div>
   <div class="quote-card">
-    <p>  يوماً ما سوف تكون فخور بنفسك , لأنك لم تستسلم🌟</p>
-    <span>— الرياضة خطوة للتغيير</span>
+    <p>ما تحتاجين تغيري شيء — أنتِ بالفعل رائعة 🌟</p>
+    <span>— الرياضة للقوة، مو للتغيير</span>
   </div>
   <div class="quote-card">
     <p>القوة تُبنى شيئاً شيئاً، يوم بعد يوم 🌿</p>
@@ -99,8 +105,16 @@
 </div>
 
 <footer>
-  <p>صُنع بـ <span>💕</span>  — استمري، أنتِ أقوى مما تتخيلين</p>
+  <p>صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين</p>
 </footer>
 
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/Remas-Fitness/sw.js');
+  });
+}
+</script>
 </body>
 </html>

@@ -3,13 +3,20 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="apple-mobile-web-app-title" content="ريماس فت"/>
+  <meta name="theme-color" content="#F7C5D0"/>
+  <link rel="apple-touch-icon" href="icons/icon-192.png"/>
 <title>الاثنين — خصر + دراجة | ريماس فت</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">🌸 Remas fit</a>
+    <a class="nav-logo" href="index.html">🌸 ريماس فت</a>
     <ul class="nav-links">
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="saturday.html">السبت</a></li>
@@ -51,13 +58,13 @@
         <div class="exercise-body">
         <div class="exercise-name">الميل الجانبي بدمبل (Side Bend)</div>
         <div class="exercise-meta"><span class="pill sand">3 جولات</span><span class="pill sand">15 كل جانب</span></div>
-        <div class="exercise-tip">دمبل, أميلي للجانب ببطء ثم ارجعي، ركزي على العضلة الجانبية</div>
+        <div class="exercise-tip">دمبل بيد واحدة، أميلي للجانب ببطء ثم ارجعي، ركزي على العضلة الجانبية</div>
         </div>
       </div>
 
       <div class="exercise-card sand-border">
-        <img class="exercise-img" src="images/Russian Twist.webp" alt="دوران روسي" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="exercise-img-placeholder" style="display:none"><span>⚡</span>Russian Twist.webp</div>
+        <img class="exercise-img" src="images/Russian twist.jpg" alt="دوران روسي" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="exercise-img-placeholder" style="display:none"><span>⚡</span>Russian twist.jpg</div>
         <div class="exercise-body">
         <div class="exercise-name">الدوران الروسي (Russian Twist)</div>
         <div class="exercise-meta"><span class="pill sand">3 جولات</span><span class="pill sand">20 تكرار</span></div>
@@ -136,28 +143,13 @@
     </div>
   </div>
 
-    <div class="workout-section">
-    <div class="exercise-grid">
-      <div class="exercise-card sand-border">
-        <img class="exercise-img" src="images/Chest stretch on the wall.jpg" alt="تمدد الصدر على الجدار" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="exercise-img-placeholder" style="display:none"><span>🌙</span>Chest stretch on the wall.jpg</div>
-        <div class="exercise-body">
-        <div class="exercise-name">تمدد الصدر على الجدار(Chest stretch on the wall)</div>
-        <div class="exercise-meta"><span class="pill sand">30 ث × 3</span></div>
-        <div class="exercise-tip">اثبتي يديك على جدارين واقتربي ثم ابعتدي عن الجدار </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <div style="text-align:center;margin-top:2.5rem">
     <a class="next-btn sand" href="tuesday.html">التمرين التالي: الثلاثاء ←</a>
   </div>
 </div>
 
 <footer>
-  <p>صُنع بـ <span>💕</span>  — استمري، أنتِ أقوى مما تتخيلين</p>
+  <p>صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين</p>
 </footer>
 <script>
 let t=0,running=false,iv;
@@ -165,6 +157,14 @@ function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60)
 function startTimer(){if(!running){running=true;iv=setInterval(()=>{t++;document.getElementById('timerDisplay').textContent=fmt(t);},1000);}}
 function pauseTimer(){running=false;clearInterval(iv);}
 function resetTimer(){pauseTimer();t=0;document.getElementById('timerDisplay').textContent='00:00';}
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/Remas-Fitness/sw.js');
+  });
+}
 </script>
 </body>
 </html>

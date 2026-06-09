@@ -1,0 +1,27 @@
+{
+  "name": "ريماس فت",
+  "short_name": "ريماس فت",
+  "description": "موقع ريماس الشخصي للرياضة المنزلية",
+  "start_url": "/Remas-Fitness/index.html",
+  "scope": "/Remas-Fitness/",
+  "display": "standalone",
+  "background_color": "#FDF6F0",
+  "theme_color": "#F7C5D0",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/Remas-Fitness/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Remas-Fitness/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

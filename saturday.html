@@ -3,13 +3,20 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="apple-mobile-web-app-title" content="ريماس فت"/>
+  <meta name="theme-color" content="#F7C5D0"/>
+  <link rel="apple-touch-icon" href="icons/icon-192.png"/>
 <title>السبت — صدر + دراجة | ريماس فت</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">🌸 Remas fit</a>
+    <a class="nav-logo" href="index.html">🌸 ريماس فت</a>
     <ul class="nav-links">
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="saturday.html" class="active">السبت</a></li>
@@ -17,7 +24,7 @@
       <li><a href="monday.html">الاثنين</a></li>
       <li><a href="tuesday.html">الثلاثاء</a></li>
       <li><a href="wednesday.html">الأربعاء</a></li>
-      <li><a href="my-journey.html">رحلتي </a></li>
+      <li><a href="my-journey.html">رحلتي ⭐</a></li>
     </ul>
   </div>
 </nav>
@@ -26,7 +33,7 @@
   <div class="day-hero">
     <span class="day-hero-emoji">💪</span>
     <h1>السبت — يوم الصدر والدراجة</h1>
-    <p> بداية أسبوع جميلة بإذن الله </p>
+    <p>ابدأي بالإحماء • المدة الكاملة: ~50 دقيقة</p>
   </div>
 
   <div class="timer-bar">
@@ -86,7 +93,7 @@
         <div class="exercise-body">
         <div class="exercise-name">بوش آب معدّل (Modified Push-Up)</div>
         <div class="exercise-meta"><span class="pill blush">3 جولات</span><span class="pill blush">10 تكرار</span><span class="pill">راحة 45 ث</span></div>
-        <div class="exercise-tip"> جسمك خط مستقيم من الركبة للكتف، أنزلي ببطء</div>
+        <div class="exercise-tip">الركبتين على الأرض، جسمك خط مستقيم من الركبة للكتف، أنزلي ببطء</div>
         </div>
       </div>
 
@@ -132,28 +139,13 @@
     </div>
   </div>
 
-  <div class="workout-section">
-    <div class="exercise-grid">
-      <div class="exercise-card sand-border">
-        <img class="exercise-img" src="images/Chest stretch on the wall.jpg" alt="تمدد الصدر على الجدار" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="exercise-img-placeholder" style="display:none"><span>🌙</span>Chest stretch on the wall.jpg</div>
-        <div class="exercise-body">
-        <div class="exercise-name">تمدد الصدر على الجدار(Chest stretch on the wall)</div>
-        <div class="exercise-meta"><span class="pill sand">30 ث × 3</span></div>
-        <div class="exercise-tip">اثبتي يديك على جدارين واقتربي ثم ابعتدي عن الجدار </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <div style="text-align:center;margin-top:2.5rem">
     <a class="next-btn" href="sunday.html">التمرين التالي: الأحد ←</a>
   </div>
 </div>
 
 <footer>
-  <p>صُنع بـ <span>💕</span>  — استمري، أنتِ أقوى مما تتخيلين</p>
+  <p>صُنع بـ <span>💕</span> لريماس — استمري، أنتِ أقوى مما تتخيلين</p>
 </footer>
 <script>
 let t=0,running=false,iv;
@@ -161,6 +153,14 @@ function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60)
 function startTimer(){if(!running){running=true;iv=setInterval(()=>{t++;document.getElementById('timerDisplay').textContent=fmt(t);},1000);}}
 function pauseTimer(){running=false;clearInterval(iv);}
 function resetTimer(){pauseTimer();t=0;document.getElementById('timerDisplay').textContent='00:00';}
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/Remas-Fitness/sw.js');
+  });
+}
 </script>
 </body>
 </html>
