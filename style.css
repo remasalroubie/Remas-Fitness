@@ -88,7 +88,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 52px;
   padding: 0 1rem;
 }
 
@@ -184,6 +184,7 @@ nav {
   padding: 1.5rem 1rem 0;
   max-width: 1100px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .hero-badge {
@@ -224,8 +225,10 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   max-width: 1100px;
+  width: 100%;
   margin: 1.5rem auto;
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .quote-card {
@@ -710,6 +713,11 @@ footer span { color: var(--blush-text); }
 @media (max-width: 767px) {
   .nav-links { display: none; }
   .bottom-nav { display: block; }
+
+  /* مسافة تحت المحتوى عشان ما يتغطى بالـ bottom nav */
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  }
 
   .week-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
 
