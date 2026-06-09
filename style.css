@@ -123,51 +123,6 @@ nav {
   color: var(--blush-text);
 }
 
-/* ─── BOTTOM NAV للجوال ─── */
-.bottom-nav {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(253,246,240,0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1.5px solid var(--blush);
-  z-index: 100;
-  padding-bottom: env(safe-area-inset-bottom, 8px);
-}
-
-.bottom-nav-inner {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 56px;
-  padding: 0 0.5rem;
-}
-
-.bottom-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  text-decoration: none;
-  color: var(--text-light);
-  font-size: 0.6rem;
-  font-weight: 600;
-  padding: 0.3rem 0.5rem;
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
-  min-width: 44px;
-}
-
-.bottom-nav a .bn-icon { font-size: 1.3rem; line-height: 1; }
-.bottom-nav a.active { color: var(--blush-text); }
-.bottom-nav a.active .bn-icon-wrap {
-  background: var(--blush);
-  border-radius: 50px;
-  padding: 0.2rem 0.6rem;
-}
 
 /* ─── SECTION ─── */
 .section {
@@ -677,7 +632,6 @@ footer span { color: var(--blush-text); }
 
 /* ─── DESKTOP — شاشات كبيرة ─── */
 @media (min-width: 768px) {
-  .bottom-nav { display: none !important; }
   .nav-links { display: flex; }
 
   footer { margin-bottom: 0; }
@@ -711,13 +665,28 @@ footer span { color: var(--blush-text); }
 
 /* ─── MOBILE — الجوال ─── */
 @media (max-width: 767px) {
-  .nav-links { display: none; }
-  .bottom-nav { display: block; }
-
-  /* مسافة تحت المحتوى عشان ما يتغطى بالـ bottom nav */
-  body {
-    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  .nav-links {
+    display: flex;
+    gap: 0.1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
   }
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.55rem;
+    white-space: nowrap;
+  }
+
+  .nav-logo { font-size: 1rem; }
+
+  /* مسافة تحت المحتوى */
+  body { padding-bottom: 1rem; }
+
+  footer { margin-bottom: 0; }
 
   .week-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
 
