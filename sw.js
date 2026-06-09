@@ -1,4 +1,4 @@
-const CACHE_NAME = 'reemas-fit-v2';
+const CACHE_NAME = 'reemas-fit-v3';
 const BASE = '/Remas-Fitness';
 
 const PAGES = [
